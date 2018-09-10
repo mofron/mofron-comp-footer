@@ -3,7 +3,8 @@
  * @brief  footer component for mofron
  * @author simpart
  */
-let mf = require('mofron');
+const mf     = require('mofron');
+const Vrtpos = require('mofron-effect-vrtpos');
 /**
  * @class mofron.comp.Footer
  * @brief footer component for mofron
@@ -34,10 +35,11 @@ mf.comp.Footer = class extends mf.Component {
     initDomConts (prm) {
         try {
             super.initDomConts();
-            this.size('100%', 200);
+            this.size('100%', '2rem');
             this.style({
                 'border-top' : 'solid 1px ' + new mf.Color(240,240,240).getStyle()
             });
+            this.effect([new Vrtpos('bottom')]);
         } catch (e) {
             console.error(e.stack);
             throw e;
