@@ -37,9 +37,30 @@ mf.comp.Footer = class extends mf.Component {
             super.initDomConts();
             this.size('100%', '2rem');
             this.style({
-                'border-top' : 'solid 1px ' + new mf.Color(240,240,240).getStyle()
+                'border-top-style' : 'solid',
+                'border-top-width' : '1px',
+                'border-top-color' : new mf.Color(240,240,240).getStyle()
             });
+            
+            
             this.effect([new Vrtpos('bottom')]);
+        } catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
+    
+    mainColor (prm) {
+        try {
+            if (undefined === prm) {
+                /* getter */
+                return mf.func.getColor(this.style('border-top-color'));
+            }
+            /* setter */
+            if (true !== mf.func.isInclude(prm, 'Color')) {
+                throw new Error('invalid parameter');
+            }
+            this.style({'border-top-color' : prm.getStyle()})
         } catch (e) {
             console.error(e.stack);
             throw e;
