@@ -4,6 +4,7 @@
  * @author simpart
  */
 const mf     = require('mofron');
+const Border = require('mofron-effect-border');
 const Vrtpos = require('mofron-effect-vrtpos');
 /**
  * @class mofron.comp.Footer
@@ -36,14 +37,13 @@ mf.comp.Footer = class extends mf.Component {
         try {
             super.initDomConts();
             this.size('100%', '2rem');
-            this.style({
-                'border-top-style' : 'solid',
-                'border-top-width' : '1px',
-                'border-top-color' : new mf.Color(240,240,240).getStyle()
-            });
             
-            
-            this.effect([new Vrtpos('bottom')]);
+            this.effect([
+                new Border({
+                    type  : 'top',
+                    color : [128, 128, 128]
+                })
+            ]);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -57,10 +57,7 @@ mf.comp.Footer = class extends mf.Component {
                 return mf.func.getColor(this.style('border-top-color'));
             }
             /* setter */
-            if (true !== mf.func.isInclude(prm, 'Color')) {
-                throw new Error('invalid parameter');
-            }
-            this.style({'border-top-color' : prm.getStyle()})
+            this.effect('Border').color(prm);
         } catch (e) {
             console.error(e.stack);
             throw e;
