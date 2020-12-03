@@ -1,6 +1,6 @@
 {
   "name": "mofron-comp-footer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "footer component for mofron",
   "main": "index.js",
   "scripts": {

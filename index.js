@@ -17,7 +17,7 @@ module.exports = class extends mofron.class.Component {
     constructor (p1) {
         try {
             super();
-            this.name('Footer');
+            this.modname('Footer');
             this.config(p1);
         } catch (e) {
             console.error(e.stack);
@@ -35,7 +35,7 @@ module.exports = class extends mofron.class.Component {
             super.initDomConts();
             this.size('100%', '2rem');
             this.effect(
-	        new Border({ position: 'top', color: [128, 128, 128], tag: "Footer" })
+	        new Border({ position: 'top', color: [211, 211, 211], tag: "Footer" })
             );
         } catch (e) {
             console.error(e.stack);
